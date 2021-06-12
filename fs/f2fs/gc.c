@@ -1167,7 +1167,7 @@ static int do_garbage_collect(struct f2fs_sb_info *sbi,
 				migrated >= sbi->migration_granularity)
 			goto skip;
 		if (!PageUptodate(sum_page) || unlikely(f2fs_cp_error(sbi)))
-			goto skip;
+			goto next;
 
 		sum = page_address(sum_page);
 		if (type != GET_SUM_TYPE((&sum->footer))) {
